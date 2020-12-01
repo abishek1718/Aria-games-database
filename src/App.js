@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { loadGames } from "./actions/gamesAction";
+import React from "react";
+//Components and pages
+import Home from "./pages/Home";
+import Nav from './components/Nav';
+//Styles
+import GlobalStyles from "./components/GlobalStyles";
+//Router
+import { Route } from "react-router-dom";
+
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadGames());
-  });
-
   return (
     <div className="App">
-      <h1>Aria</h1>
+      <GlobalStyles />
+      <Nav />
+      <Route path={["/game/:id", "/"]}>
+        <Home />
+      </Route>
     </div>
   );
 }
